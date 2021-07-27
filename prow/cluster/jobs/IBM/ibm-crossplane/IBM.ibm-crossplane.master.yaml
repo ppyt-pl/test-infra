@@ -122,23 +122,3 @@ postsubmits:
         name: ""
         securityContext:
           privileged: true
-  - name: images_ibm-crossplane_postsubmit
-    branches:
-    - ^master$
-    - ^release-cd$
-    - ^release-efix$
-    - ^release-eus$
-    decorate: true
-    path_alias: github.com/IBM/ibm-crossplane
-    labels:
-      preset-service-account: "true"
-    spec:
-      containers:
-      - command:
-        - entrypoint
-        - make
-        - images
-        image: quay.io/multicloudlab/build-tool:v20210320-86027f0e9
-        name: ""
-        securityContext:
-          privileged: true
